@@ -8,30 +8,30 @@ module.exports = {
 
     attributes: {
 
-        docotorId: {
-            type: "string",
-            required: true
+        patientId: {
+            model: "person"
         },
-        disease: {
+        date: {
             type: "string"
-        },
-        detail: {
-            type: "string"
-        },
-        dateOfAppointment: {
-            type: 'date',
-            required: true
         },
         time: {
-            type: 'string',
-            required: true,
-            enum: ['mornning', 'afternoon', 'evenning']
+            type: "datetime"
         },
-        patientId: {
-            model: "Patient"
+        duration: {
+            type: "string"
+        },
+        place: {
+            type: "string"
+        },
+        note: {
+            type: "string"
         },
         schedule: {
             model: "schedule"
         }
+    },
+    afterCreate: function(entry, cb) {
+        sails.sockets.broadcast('appointment', entry.schedule.place, entry);
+        cb();
     }
 };

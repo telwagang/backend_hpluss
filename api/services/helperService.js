@@ -81,8 +81,9 @@ module.exports.findTime = function(time, callback) {
 
     var n = weekday[d.getDay()];
     console.log(n);
-    if (n == 'undefined') {
-        callback('');
+    if (typeof n === 'undefined') {
+        callback(" ");
+    } else {
+        callback(n);
     }
-    callback(n);
 };

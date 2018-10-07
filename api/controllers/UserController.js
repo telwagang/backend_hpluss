@@ -241,6 +241,7 @@ module.exports = {
     login: function(req, res) {
 
         var formdata = req.params.all();
+        console.log(formdata);
         var imei = "";
         if (formdata.imei) {
             imei = formdata.imei;
@@ -303,10 +304,11 @@ module.exports = {
             //No Imei its a webapp
             auth(email, password, function(data) {
                 if (data) {
-                    req.session.user = data.user;
-                    console.log("user: " + data.user.name);
-                    res.send(data);
-
+                    if (data.message) { res.send(data); } else {
+                        req.session.user = data.user;
+                        console.log("user: " + data.user.name);
+                        res.send(data);
+                    }
                 } else {
                     res.forbidden({
                         "forbidden": "Access Denied"

@@ -21,6 +21,15 @@ module.exports = {
             });
         }
         console.log(req);
+    },
+    Appointments: function(req, res) {
+        if (!req.isSocket) {
+            return res.badRequest();
+        }
+
+        sails.sockets.join(req.socket, 'appointment');
+
+        return res.ok();
     }
 
 };

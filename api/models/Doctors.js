@@ -9,15 +9,10 @@ module.exports = {
 
     attributes: {
         name: {
-            type: "string",
-            required: true
+            type: "string"
         },
         specialty: {
             type: "string"
-        },
-        day: {
-            collections: "day",
-            via: "owner"
         }
     }
 };

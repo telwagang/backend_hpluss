@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-
     create: function(req, res) {
         if (req.params.all('imei')) {
             Device.findOne({
@@ -39,7 +38,30 @@ module.exports = {
         }
 
     },
+    login: function(req, res) {
+        var formdata = req.pamas.all();
+        console.log(formdata);
 
+        if(FormData) {
+            res.BadRequest({"error": "error"});
+        }
+        
+        Employee.findOne({
+            where:{email: formdata.email}
+        })
+        .populate('role')
+        .exec(function(err, employee){
+            if(err){
+                res.error({"Messgae": "count not find Elpy"});
+            } else if()
+            {
+                if(!per)
+            }
+            
+        })
+
+
+    },
     createEmployee: function(req, res) {
         var formData = req.params.all();
 

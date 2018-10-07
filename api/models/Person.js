@@ -46,7 +46,7 @@ module.exports = {
         },
         gender: {
             type: "string",
-            enum: ['famale', 'male'],
+            enum: ['female', 'male'],
             required: true
         },
         dateOfBirth: {
@@ -65,9 +65,9 @@ module.exports = {
         role: {
             model: "role"
         },
-        patient: {
-            collection: "patient",
-            via: "person"
+        person: {
+            collection: "appointment",
+            via: "patientId"
         }
 
     },

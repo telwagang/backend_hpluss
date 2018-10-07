@@ -61,6 +61,8 @@ module.exports.routes = {
     'GET /logout/:access_token': 'UserController.logout',
     'GET /schedule/fill': 'ScheduleController.pullData',
     'POST /schedule/search': 'ScheduleController.findSlot',
+    'POST /schedule/quick': 'ScheduleController.slotCount',
+    'POST /schedule/findtime': 'ScheduleController.findTime',
     'GET  /schedule/setappointment': 'ScheduleController.setSchedule',
     'GET /helper/getspecialty': 'HelperController.getListSpecialty',
     'GET /helper/gethospitals': 'HelperController.getListHospital',

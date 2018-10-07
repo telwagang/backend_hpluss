@@ -8,28 +8,25 @@
  module.exports = {
 
      attributes: {
-         number: {
-             type: 'integer',
-             autoIncrement: true,
-             unique: true
+         name: {
+             type: "string"
          },
-         doctorId: {
-             model: "doctors"
-         },
-         hospital: {
-             model: "hospital"
+         specialty: {
+             type: "string"
          },
          day: {
-             type: "string",
-             enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+             type: "string"
          },
-         timefrom: {
-             type: "date"
+         place: {
+             type: "string"
          },
-         timeto: {
-             type: "date"
+         time: {
+             type: "string"
          },
-         building: {
+         latitude: {
+             type: "string"
+         },
+         longitude: {
              type: "string"
          }
      }
